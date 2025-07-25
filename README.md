@@ -13,7 +13,7 @@ Desenvolver uma aplicação simples que permite:
 
 ## Ferramentas Utilizadas
 
-- **Python 3.10**
+- **Python 3.11**
 - **Segment Anything (Meta AI)**: modelo pré-treinado para segmentação automática.
 - **OpenCV (cv2)**: leitura, manipulação e escrita das imagens.
 - **PyTorch**: framework base para carregamento e execução do modelo.
