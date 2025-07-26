@@ -31,7 +31,7 @@ Desenvolver uma aplicação simples que permite:
 2. Execute o script principal:
 
    ```bash
-   python remove_background.py
+   python main.py
    ```
 
 3. O resultado será salvo na pasta `treated_images/` com fundo transparente.
@@ -49,8 +49,8 @@ Para testar o comportamento do modelo, selecionei 4 imagens cuidadosamente, com 
 3. **Imagem 3 — Relógio de bolso antigo, fundo escuro com tons semelhantes ao objeto**  
    Resultado insatisfatório. O modelo confundiu partes do relógio com o fundo, removendo trechos importantes da imagem. Isso se deu pela baixa diferença de cor e textura.
 
-4. **Imagem 4 — Pernas de um casal com All Star no meio da floresta (fundo muito detalhado)**  
-   Resultado fraco. Devido à grande quantidade de folhas e variação no fundo, a máscara gerada foi inconsistente, resultando em falhas visuais perceptíveis no objeto principal.
+4. **Imagem 4 — Imagem  de um casal mostando somente as pernas com All Star no meio da floresta (fundo muito detalhado)**  
+   Resultado insatisfatório. Devido à grande quantidade de folhas e variação no fundo, a máscara gerada foi inconsistente, resultando em falhas visuais perceptíveis no objeto principal.
 
 ### Conclusões
 
