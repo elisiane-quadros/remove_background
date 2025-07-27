@@ -56,15 +56,15 @@ Para testar o comportamento do modelo, selecionei 4 imagens cuidadosamente, com 
 
 3. **Imagem 3 — Relógio de bolso antigo, fundo escuro com tons semelhantes ao objeto**
    <div>
-      <img src="images/raw_images/relogio.jpg" alt="Casal" width="300"/>
-      <img src="images/processed_images/relogio.png" alt="Casal" width="300"/>
+      <img src="images/raw_images/relogio.jpg" alt="Relógio" width="300"/>
+      <img src="images/processed_images/relogio.png" alt="Relógio" width="300"/>
    <div>
    Resultado: Desempenho insatisfatório. O modelo demonstrou dificuldade significativa, removendo partes importantes do relógio onde a distinção de cor e luminosidade era baixa, resultando em uma imagem final "falhada" ou com buracos. Este caso ilustra o desafio imposto pela baixa distinção cromática e de luminosidade em conjunto com a alta complexidade textural tanto do objeto (ornamentos, corrente) quanto do fundo.
 
 4. **Imagem 4 — Pernas com Tênis em Floresta (fundo muito detalhado)**
    <div>
-      <img src="images/raw_images/folhas.jpg" alt="Casal" width="300"/>
-      <img src="images/processed_images/folhas.png" alt="Casal" width="300"/>
+      <img src="images/raw_images/folhas.jpg" alt="Folhas" width="300"/>
+      <img src="images/processed_images/folhas.png" alt="Folhas" width="300"/>
    <div>
    Resultado: Fraco a máscara gerada foi inconsistente e apresentou falhas visuais perceptíveis, com partes do fundo sendo erroneamente incluídas no objeto e vice-versa. Este é o cenário mais desafiador, a baixa distinção cromática entre o objeto e o fundo, somada à alta granularidade e complexidade do fundo (texturas irregulares, múltiplos pequenos elementos), sobrecarrega o algoritmo.
 
