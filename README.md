@@ -31,7 +31,7 @@ Desenvolver uma aplicação em Python que demonstre a capacidade do SAM na segme
 2. Execute o script principal:
 
    ```bash
-   python remove_background.py
+   python main.py
    ```
 
 3. Os resultados processados, com o fundo removido e transparência aplicada, serão salvos na pasta treated_images/.
@@ -50,8 +50,13 @@ Para testar o comportamento do modelo, selecionei 4 imagens cuidadosamente, com 
 3. **Imagem 3 — Relógio de bolso antigo, fundo escuro com tons semelhantes ao objeto**  
    Resultado: Desempenho insatisfatório. O modelo demonstrou dificuldade significativa, removendo partes importantes do relógio onde a distinção de cor e luminosidade era baixa, resultando em uma imagem final "falhada" ou com buracos. Este caso ilustra o desafio imposto pela baixa distinção cromática e de luminosidade em conjunto com a alta complexidade textural tanto do objeto (ornamentos, corrente) quanto do fundo.
 
+<<<<<<< HEAD
 4. **Imagem 4 — Pernas com Tênis em Floresta (fundo muito detalhado)**  
    Resultado: Fraco a máscara gerada foi inconsistente e apresentou falhas visuais perceptíveis, com partes do fundo sendo erroneamente incluídas no objeto e vice-versa. Este é o cenário mais desafiador. A baixa distinção cromática entre o objeto e o fundo, somada à alta granularidade e complexidade do fundo (texturas irregulares, múltiplos pequenos elementos), sobrecarrega o algoritmo.
+=======
+4. **Imagem 4 — Imagem  de um casal mostando somente as pernas com All Star no meio da floresta (fundo muito detalhado)**  
+   Resultado insatisfatório. Devido à grande quantidade de folhas e variação no fundo, a máscara gerada foi inconsistente, resultando em falhas visuais perceptíveis no objeto principal.
+>>>>>>> c22a3f0ea9500ef19e41634e2844b2916ba5f213
 
 ### Conclusões
 
