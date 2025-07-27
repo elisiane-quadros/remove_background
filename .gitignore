@@ -8,5 +8,4 @@ venv/
 *.png
 *.jpeg
 output/
-raw_images/
-treated_images/
+

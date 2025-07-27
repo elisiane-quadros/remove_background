@@ -1,24 +1,24 @@
-# Background Remover com Segment Anything
+# Background Remover com Segment Anything(SAM)
 
-Este projeto aplica a tecnologia de segmentação automática da Meta AI (Segment Anything) para **remover o fundo de imagens** de forma inteligente. Foi desenvolvido com o objetivo de experimentar e compreender o comportamento do modelo em situações reais, especialmente em imagens com características variadas de luz, contraste, cor e fundo.
+Este projeto demonstra a aplicação do Segment Anything Model (SAM) da Meta AI para remoção automática de fundo de imagens. O objetivo foi explorar o comportamento do SAM em diferentes cenários visuais, avaliando sua eficácia e limitações em situações reais de contraste, cor e complexidade de fundo.
 
 ## Objetivo
 
-Desenvolver uma aplicação simples que permite:
+Desenvolver uma aplicação em Python que demonstre a capacidade do SAM na segmentação de imagens para remoção de fundo, permitindo:
 
-- Carregar uma imagem.
-- Aplicar o modelo Segment Anything.
-- Remover o fundo automaticamente com base na máscara gerada.
-- Salvar o resultado final com fundo transparente.
+- Carregar uma imagem de entrada.
+- Aplicar o modelo Segment Anything para gerar máscaras de segmentação.
+- Utilizar as máscaras para remover o fundo da imagem.
+- Salvar a imagem resultante com fundo transparente (formato PNG).
 
 ## Ferramentas Utilizadas
 
 - **Python 3.11**
 - **Segment Anything (Meta AI)**: modelo pré-treinado para segmentação automática.
-- **OpenCV (cv2)**: leitura, manipulação e escrita das imagens.
-- **PyTorch**: framework base para carregamento e execução do modelo.
-- **Matplotlib**: visualização intermediária dos resultados.
-- **PIL (Pillow)**: manipulação da imagem final com transparência.
+- **OpenCV (cv2)**: Utilizado para leitura, manipulação de pixels e escrita de imagens.
+- **PyTorch**: Framework fundamental para o carregamento do modelo SAM e execução de inferência.
+- **Matplotlib**: Para visualização intermediária e depuração das máscaras geradas.
+- **PIL (Pillow)**: Essencial para manipulação de imagens, especialmente para aplicar a transparência (canal RGBA) no resultado final.
 
 ## Como usar
 
@@ -34,23 +34,24 @@ Desenvolver uma aplicação simples que permite:
    python remove_background.py
    ```
 
-3. O resultado será salvo na pasta `treated_images/` com fundo transparente.
+3. Os resultados processados, com o fundo removido e transparência aplicada, serão salvos na pasta treated_images/.
 
 ## Análise Experimental
 
 Para testar o comportamento do modelo, selecionei 4 imagens cuidadosamente, com diferentes características de iluminação, contraste e complexidade de fundo:
 
-1. **Imagem 1 — Arara colorida com fundo desfocado e claro**  
-   Resultado excelente. O modelo conseguiu contornar com precisão as cores vibrantes da arara, e removeu completamente o fundo. Foi a melhor performance entre os testes.
+1. **Imagem 1 — Arara colorida com fundo desfocado e claro**
+   !\[Arara Original](images/raw_images/arara.jpg) !\[Arara Original](images/treated_images/arara.jpg)
+   Resultado excelente. O modelo conseguiu contornar com precisão as cores vibrantes da arara, e removeu completamente o fundo. Foi a melhor performance entre os testes. Há uma clara distinção cromática. As cores da arara são muito diferentes das cores predominantes no fundo, o que permite que os algoritmos de segmentação de imagem (baseados em cor e intensidade de pixel) identifiquem facilmente os limites do objeto.
 
 2. **Imagem 2 — Casal com roupas em tons pastéis, fundo claro e planta ao lado**  
-   Resultado bom. As áreas com cores sólidas foram bem segmentadas, mas as regiões em que as cores da roupa se misturavam ao fundo geraram alguns borrões. Ainda assim, aceitável.
+   Resultado: A remoção foi majoritariamente bem-sucedida, especialmente onde havia contraste cromático sólido (e.g., a cor da blusa do homem vs. o fundo). No entanto, como previsto, em áreas onde os tons de pele ou das roupas claras se aproximavam dos tons do fundo (cortinas/parede), o recorte apresentou pequenas imperfeições ou "borrões". Isso demonstra a sensibilidade dos algoritmos à similaridade de pixels em regiões de transição.
 
 3. **Imagem 3 — Relógio de bolso antigo, fundo escuro com tons semelhantes ao objeto**  
-   Resultado insatisfatório. O modelo confundiu partes do relógio com o fundo, removendo trechos importantes da imagem. Isso se deu pela baixa diferença de cor e textura.
+   Resultado: Desempenho insatisfatório. O modelo demonstrou dificuldade significativa, removendo partes importantes do relógio onde a distinção de cor e luminosidade era baixa, resultando em uma imagem final "falhada" ou com buracos. Este caso ilustra o desafio imposto pela baixa distinção cromática e de luminosidade em conjunto com a alta complexidade textural tanto do objeto (ornamentos, corrente) quanto do fundo.
 
-4. **Imagem 4 — Pernas de um casal com All Star no meio da floresta (fundo muito detalhado)**  
-   Resultado fraco. Devido à grande quantidade de folhas e variação no fundo, a máscara gerada foi inconsistente, resultando em falhas visuais perceptíveis no objeto principal.
+4. **Imagem 4 — Pernas com Tênis em Floresta (fundo muito detalhado)**  
+   Resultado: Fraco a máscara gerada foi inconsistente e apresentou falhas visuais perceptíveis, com partes do fundo sendo erroneamente incluídas no objeto e vice-versa. Este é o cenário mais desafiador. A baixa distinção cromática entre o objeto e o fundo, somada à alta granularidade e complexidade do fundo (texturas irregulares, múltiplos pequenos elementos), sobrecarrega o algoritmo.
 
 ### Conclusões
 
