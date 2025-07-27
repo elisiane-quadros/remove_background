@@ -41,7 +41,7 @@ Desenvolver uma aplicação em Python que demonstre a capacidade do SAM na segme
 Para testar o comportamento do modelo, selecionei 4 imagens cuidadosamente, com diferentes características de iluminação, contraste e complexidade de fundo:
 
 1. **Imagem 1 — Arara colorida com fundo desfocado e claro**
-   !\[Arara Original](images/raw_images/arara.jpg) !\[Arara Original](images/treated_images/arara.jpg)
+   \[Arara Original](images/raw_images/arara.jpg) !\[Arara Original](images/treated_images/arara.png)
    Resultado excelente. O modelo conseguiu contornar com precisão as cores vibrantes da arara, e removeu completamente o fundo. Foi a melhor performance entre os testes. Há uma clara distinção cromática. As cores da arara são muito diferentes das cores predominantes no fundo, o que permite que os algoritmos de segmentação de imagem (baseados em cor e intensidade de pixel) identifiquem facilmente os limites do objeto.
 
 2. **Imagem 2 — Casal com roupas em tons pastéis, fundo claro e planta ao lado**  
@@ -50,19 +50,14 @@ Para testar o comportamento do modelo, selecionei 4 imagens cuidadosamente, com 
 3. **Imagem 3 — Relógio de bolso antigo, fundo escuro com tons semelhantes ao objeto**  
    Resultado: Desempenho insatisfatório. O modelo demonstrou dificuldade significativa, removendo partes importantes do relógio onde a distinção de cor e luminosidade era baixa, resultando em uma imagem final "falhada" ou com buracos. Este caso ilustra o desafio imposto pela baixa distinção cromática e de luminosidade em conjunto com a alta complexidade textural tanto do objeto (ornamentos, corrente) quanto do fundo.
 
-<<<<<<< HEAD
 4. **Imagem 4 — Pernas com Tênis em Floresta (fundo muito detalhado)**  
-   Resultado: Fraco a máscara gerada foi inconsistente e apresentou falhas visuais perceptíveis, com partes do fundo sendo erroneamente incluídas no objeto e vice-versa. Este é o cenário mais desafiador. A baixa distinção cromática entre o objeto e o fundo, somada à alta granularidade e complexidade do fundo (texturas irregulares, múltiplos pequenos elementos), sobrecarrega o algoritmo.
-=======
-4. **Imagem 4 — Imagem  de um casal mostando somente as pernas com All Star no meio da floresta (fundo muito detalhado)**  
-   Resultado insatisfatório. Devido à grande quantidade de folhas e variação no fundo, a máscara gerada foi inconsistente, resultando em falhas visuais perceptíveis no objeto principal.
->>>>>>> c22a3f0ea9500ef19e41634e2844b2916ba5f213
+   Resultado: Fraco a máscara gerada foi inconsistente e apresentou falhas visuais perceptíveis, com partes do fundo sendo erroneamente incluídas no objeto e vice-versa. Este é o cenário mais desafiador, a baixa distinção cromática entre o objeto e o fundo, somada à alta granularidade e complexidade do fundo (texturas irregulares, múltiplos pequenos elementos), sobrecarrega o algoritmo.
 
 ### Conclusões
 
 - O modelo tem **excelente desempenho com objetos bem definidos**, cores vibrantes e contraste claro com o fundo.
 - Em **cenários com fundos complexos** ou **baixa distinção de cor**, a qualidade da segmentação diminui.
-- A aplicação é eficaz para uso geral, mas **não substitui completamente edições manuais** em imagens mais desafiadoras.
+- A aplicação é eficaz para uso geral, mas **não substitui completamente edições manuais** em imagens mais detalhadas e desafiadoras.
 
 Desenvolvido por **Elisiane Quadros**
 [LinkedIn](https://www.linkedin.com/in/elisiane-quadros/) • © 2025

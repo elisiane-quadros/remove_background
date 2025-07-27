@@ -3,8 +3,8 @@ from PIL import Image
 import os
 import io
 
-input_dir = 'raw_images'
-output_dir = 'treated_images'
+input_dir = 'images/raw_images'
+output_dir = 'images/processed_images'
 
 os.makedirs(output_dir, exist_ok=True)
 

@@ -4,8 +4,5 @@ __pycache__/
 venv/
 .idea/
 .DS_Store
-*.jpg
-*.png
-*.jpeg
 output/
 
