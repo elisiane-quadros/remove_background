@@ -41,7 +41,6 @@ Desenvolver uma aplicação em Python que demonstre a capacidade do SAM na segme
 Para testar o comportamento do modelo, selecionei 4 imagens cuidadosamente, com diferentes características de iluminação, contraste e complexidade de fundo:
 
 1. **Imagem 1 — Arara colorida com fundo desfocado e claro**
-   \[Arara Original](images/raw_images/arara.jpg) !\[Arara Original](images/treated_images/arara.png)
    Resultado excelente. O modelo conseguiu contornar com precisão as cores vibrantes da arara, e removeu completamente o fundo. Foi a melhor performance entre os testes. Há uma clara distinção cromática. As cores da arara são muito diferentes das cores predominantes no fundo, o que permite que os algoritmos de segmentação de imagem (baseados em cor e intensidade de pixel) identifiquem facilmente os limites do objeto.
 
 2. **Imagem 2 — Casal com roupas em tons pastéis, fundo claro e planta ao lado**  
