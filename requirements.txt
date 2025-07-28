@@ -1,1 +1,4 @@
 rembg
+pytest
+flake8
+black

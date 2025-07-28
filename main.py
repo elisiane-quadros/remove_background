@@ -1,25 +1,15 @@
-from rembg import remove
-from PIL import Image
 import os
-import io
+from src.image_preocessor import process_images_in_directory
 
-input_dir = 'images/raw_images'
-output_dir = 'images/processed_images'
+if __name__ == "__main__":
+    input_dir = 'images/raw_images'
+    output_dir = 'images/processed_images'
 
-os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(output_dir, exist_ok=True)
 
-for filename in os.listdir(input_dir):
-    if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
-        input_path = os.path.join(input_dir, filename)
-        base_name = os.path.splitext(filename)[0]
-        output_path = os.path.join(output_dir, base_name + '.png')
+    print(f"Iniciando o processamento de imagens de: {input_dir}")
+    print(f"Os resultados serão salvos em: {output_dir}\n")
 
-        with open(input_path, 'rb') as f:
-            input_bytes = f.read()
-            output_bytes = remove(input_bytes)
+    process_images_in_directory(input_dir, output_dir)
 
-        img_no_bg = Image.open(io.BytesIO(output_bytes))
-
-        img_no_bg.save(output_path, format='PNG')
-
-        print(f"Processed: {filename} -> {output_path}")
+    print("\nProcessamento concluído!")
